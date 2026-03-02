@@ -78,14 +78,62 @@ const subconjunto_adequado = (A, B) => {
 
 }
 
-const A = [2, 3];
-const B = [2, 3, 4];
+const nao_subconjunto = (A, B) => {
+
+    if(!subconjunto_adequado(A, B) && !subconjunto(A, B)) {
+        return true;
+    }
+
+    return false;
+
+}
+
+const superconjunto = (A, B) => {
+
+    return subconjunto(B, A);
+
+}
+
+const superconjunto_adequado = (A, B) => {
+
+    return subconjunto_adequado(B, A);
+
+}
+
+const nao_superconjunto = (A, B) => {
+
+    return nao_subconjunto(B, A);
+
+}
+
+const conjunto_de_forca = (A) => {
+    
+    let conjunto_de_forca = [];
+    conjunto_de_forca.push([]); // conjunto vazio;
+    
+    A.forEach(elemento => {
+        conjunto_de_forca.push([elemento]);
+    })
+
+    // a fazer
+
+    conjunto_de_forca.push([A]);
+    
+    return conjunto_de_forca;
+
+}
+
+const A = [1, 2, 3];
+const B = [2, 1];
 
 //const C = uniao(A, B);
 //const C = intersecao(A, B);
 //const C = complemento_relativo(A, B);
 //const C = subconjunto(A, B);
+//const C = subconjunto_adequado(A, B);
+//const C = superconjunto_adequado(A, B);
+//const C = nao_superconjunto(A, B);
 
-const C = subconjunto_adequado(A, B);
+const C = conjunto_de_forca(A);
 
 console.log(C);
