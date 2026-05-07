@@ -107,20 +107,6 @@ const nao_superconjunto = (A, B) => {
 }
 
 const conjunto_de_forca = (A) => {
-    
-    let conjunto_de_forca = [];
-    conjunto_de_forca.push([]); // conjunto vazio;
-    
-    A.forEach(elemento => {
-        conjunto_de_forca.push([elemento]);
-    })
-
-    // a fazer
-
-    conjunto_de_forca.push([A]);
-    
-    return conjunto_de_forca;
-
 }
 
 const A = [1, 2, 3];
