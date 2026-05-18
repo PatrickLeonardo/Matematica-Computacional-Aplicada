@@ -107,19 +107,24 @@ const nao_superconjunto = (A, B) => {
 }
 
 const conjunto_de_forca = (A) => {
+
+    const conjuntoDeForca = [[]];
+    
+    const reboot = (curr, remain) => {
+        
+        if(remain.length == 0) {
+            if(curr.length > 0) {
+                conjuntoDeForca.push(curr);
+            }
+            return;
+        }
+        
+        reboot([...curr, remain[0]], remain.slice(1));
+        reboot(curr, remain.slice(1));
+
+    }
+
+    reboot([], A);
+    return conjuntoDeForca;
+    
 }
-
-const A = [1, 2, 3];
-const B = [2, 1];
-
-//const C = uniao(A, B);
-//const C = intersecao(A, B);
-//const C = complemento_relativo(A, B);
-//const C = subconjunto(A, B);
-//const C = subconjunto_adequado(A, B);
-//const C = superconjunto_adequado(A, B);
-//const C = nao_superconjunto(A, B);
-
-const C = conjunto_de_forca(A);
-
-console.log(C);
